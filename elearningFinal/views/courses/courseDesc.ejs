@@ -1,0 +1,48 @@
+<% layout('boilerplate2') %>
+
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <h3> <%= course.title %> </h3>
+      </div>   
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row" style = 'padding: 0 90px;'>
+    <div class="col-lg-6">
+      <h5>Description</h5>
+      <p style="text-align:justify"><%= course.desc %></p>      
+    </div>    
+      <div class="col-lg-6 ">
+        <div class='col-lg-4'></div>
+          <div class='col-lg-4 ' align="bottom">
+            <form action="/payment" method="POST">
+              <input type="hidden" name="courseId" value="<%= course._id %>" />
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_s5MCQ9ddIg5tuYexEzKCyIxj"
+                  data-amount="<%= course.price %>"
+                  data-name= "Stripe.com"
+                  data-description="Widget"
+                  data-image="",
+                  data-locale="auto">
+                </script>
+            </form>
+          </div>
+          <div class='col-lg-4'></div>      
+
+        </div>      
+      </div>
+
+  </div>
+
+</div>
+
+

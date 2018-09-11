@@ -1,0 +1,38 @@
+<% layout('boilerplate') %>
+
+
+  <div class="container text-center">
+    <div class="container text-center" id="wistia_<%= course.wistiaId %>" class="wistia_embed" style="width:1000px;height:625px;" data-video-width="1000" data-video-height="625">&nbsp;</div>
+    <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/playlist-v1.js"></script>
+    <script>
+      wistiaPlaylist = Wistia.playlist("<%= course.wistiaId %>", {
+        version: "v1",
+        theme: "tab",
+        videoOptions: {
+          volumeControl: true,
+          autoPlay: true,
+          videoWidth: "1000",
+          videoHeight: "625"
+        },
+        media_0_0: {
+          autoPlay: false,
+          controlsVisibleOnLoad: false
+        }
+      });
+    </script>
+  </div>
+ 
+  <% if(userCourse != null) { %> 
+  <div class="container text-center">
+      <a href="http://localhost:3002/chat.html?name=<%=  userCourse.profile.name.replace(/ /g,'')  %>&room=<%=  course.title.replace(/ /g,'')  %>" target="_blank">
+        <button type="button" class="btn btn-primary btn-lg">Start Chat</button>
+      </a>
+  </div>
+  <% }  %>
+  <% if(teacherCourse != null) { %> 
+    <div class="container text-center">
+        <a href="http://localhost:3002/chat.html?name=<%=  teacherCourse.profile.name.replace(/ /g,'')  %>&room=<%=  course.title.replace(/ /g,'')  %>" target="_blank">
+          <button type="button" class="btn btn-primary btn-lg">Start Chat</button>
+        </a>
+    </div>
+    <% }  %>

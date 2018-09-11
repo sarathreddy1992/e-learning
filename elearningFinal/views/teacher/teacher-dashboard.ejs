@@ -1,0 +1,41 @@
+<% layout('boilerplate') %>
+
+<div class="jumbotron">
+  <div class="container">
+    <p class="text-center">
+    <a href="/create-course" class="btn btn-primary btn-lg">Create a new Course</a></p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+
+    <h2 class="text-center" style=''>Courses that you teach</h2>
+    <hr />
+
+    <% for (var i = 0; i < foundUser.coursesTeach.length; i++) { %>
+    <div class="col-md-4">
+
+      <a href="/courses/<%= foundUser.coursesTeach[i].course._id %>"
+        style="text-decoration: none; color: #34495e">
+
+        <div class="panel panel-default">
+
+
+          <div class="panel-body" style="border:0px;height:275px;overflow-y:auto;">
+            <h4 ><%= foundUser.coursesTeach[i].course.title %></h4>
+            <p style="text-align:justify"><%= foundUser.coursesTeach[i].course.desc %></p>
+            <p class="text-center ">
+            <a href="/edit-course/<%= foundUser.coursesTeach[i].course._id %>" class="btn btn-primary" style="float: right;">Edit course</a>
+          </div>
+
+      </div>
+      
+      </a>
+    </div>
+    <% } %>
+
+  </div>
+
+</div>

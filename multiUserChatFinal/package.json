@@ -1,0 +1,25 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "mocha server/**/*.test.js",
+    "test-watch": "nodemon --exec 'node test'"
+  },
+  "engines": {
+    "node": "8.0.0"
+  },
+  "author": "Rahul",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4",
+    "moment": "^2.18.1",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^3.5.0"
+  }
+}
